@@ -59,7 +59,11 @@ class _MainAppState extends State<MainApp> {
           centerTitle: true,
           title: const Text(
             'Dashboard',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ),
         body: SingleChildScrollView(
@@ -78,7 +82,7 @@ class _MainAppState extends State<MainApp> {
                   ),
                 ),
                 Divider(color: Colors.teal, thickness: 3),
-                const SizedBox(height: 16), //Divider
+                const SizedBox(height: 16),
                 Row(
                   children: [
                     Expanded(
@@ -240,7 +244,7 @@ class _MainAppState extends State<MainApp> {
                         inside: const BorderSide(
                           color: Colors.black12,
                           width: 1,
-                        ), // líneas internas
+                        ),
                       ),
                       columnWidths: const {
                         0: FlexColumnWidth(1.2),
@@ -248,7 +252,6 @@ class _MainAppState extends State<MainApp> {
                         2: FlexColumnWidth(2.4),
                       },
                       children: [
-                        // CABECERA (primera fila de color)
                         TableRow(
                           decoration: BoxDecoration(
                             color: Colors.teal.shade200,
@@ -259,14 +262,13 @@ class _MainAppState extends State<MainApp> {
                             _Cell('Estado', isHeader: true),
                           ],
                         ),
-                        // Filas generadas desde la lista transacciones
                         ...transacciones.map((t) {
                           final estado = t['estado'] as String;
                           final estadoColor = estado == '✅ Completado'
                               ? Colors.green
                               : estado == '⏱ Pendiente'
                               ? Colors.orange
-                              : Colors.red; // ✗ Cancelado
+                              : Colors.red;
                           return TableRow(
                             children: [
                               _Cell(t['id'] as String),

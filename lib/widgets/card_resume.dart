@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Tarjeta de resumen con icono, número, título y texto de variación (verde/rojo).
-/// Fondo teal y borde negro.
 class CardResume extends StatelessWidget {
   const CardResume({
     super.key,
@@ -13,20 +11,11 @@ class CardResume extends StatelessWidget {
     this.isPositive = true,
   });
 
-  /// Título de la métrica (ej: "Usuarios activos")
   final String title;
-
-  /// Número principal (ej: "1.234" o "78%")
   final String number;
-
-  /// Texto de variación (ej: "+12%" o "-5%") — color verde si positivo, rojo si negativo
   final String variationText;
-
-  /// Icono de la tarjeta
   final IconData icon;
   final Color iconColor;
-
-  /// Si es true el texto de variación es verde; si es false, rojo
   final bool isPositive;
 
   @override
@@ -46,10 +35,8 @@ class CardResume extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. Icono
           Center(child: Icon(icon, size: 32, color: iconColor)),
           const SizedBox(height: 8),
-          // 2. Número (o porcentaje)
           Center(
             child: Text(
               number,
@@ -61,7 +48,6 @@ class CardResume extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 6),
-          // 3. Título
           Center(
             child: Text(
               title,
@@ -74,7 +60,6 @@ class CardResume extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          // 4. Texto de variación (verde o rojo)
           Align(
             alignment: Alignment.centerRight,
             child: Text(
